@@ -1,0 +1,326 @@
+<!-- ## The html code of the form goes here -->
+<!-- ## This is included in the Index.html page using "include('Form')" function -->
+
+<form id="myForm" class="p-2 border border-light rounded bg-light" onsubmit="handleFormSubmit(this)"> <!-- Call JavaScript function "handleFormSubmit" -->
+    <p class="h4 mb-4 text-center">Import Tracker Processing From</p>
+    <div id="message"></div>
+    <input type="text" id="RecId" name="RecId" value="" style="display: none">
+
+<div class="form-row">
+	<div class="form-group col-md-6">
+	<label for="checking_date">checking_date</label>
+			<input type="date" class="form-control" id="checking_date" name="checking_date" required>
+	</div>
+
+		<div class="form-group col-md-6">
+		<label for="driver_id" >driver_id</label>
+		<input type="number" class="form-control" id="driver_id" name="driver_id" placeholder="ID tài khoản" required>
+	</div> <br><br>
+
+		<div class="form-group col-md-6">
+			<p>owner_hit</p>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="owner_hit" id="Driver" value="Driver">
+				<label class="form-check-label" for="Driver">Driver</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="owner_hit" id="User" value="User">
+				<label class="form-check-label" for="User">User</label>
+			</div>
+      	<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="owner_hit" id="MC" value="MC">
+				<label class="form-check-label" for="MC">MC</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<p>vehicle_type</p>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="vehicle_type" id="beBike" value="beBike">
+				<label class="form-check-label" for="beBike">beBike</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="vehicle_type" id="beCar" value="beCar">
+				<label class="form-check-label" for="beCar">beCar</label>
+			</div>
+      	<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="vehicle_type" id="beFood" value="beFood">
+				<label class="form-check-label" for="beFood">beFood</label>
+			</div>
+      	<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="vehicle_type" id="beDelivery" value="beDelivery">
+				<label class="form-check-label" for="beDelivery">beDelivery</label>
+			</div>
+		</div>
+
+	<div class="form-group col-md-6">
+		<label for="driver_name" >driver_name</label>
+		<input type="text" class="form-control" id="driver_name" name="driver_name" placeholder="Tên" >
+	</div>
+
+
+	<div class="form-group col-md-6">
+		<label for="vehicle_no" >vehicle_no</label>
+		<input type="text" class="form-control" id="vehicle_no" name="vehicle_no" placeholder="Số xe" >
+	</div>
+
+
+
+<div class="form-group col-md-6">
+<label for="exampleFormControlSelect1">Violation_Quality:</label>
+<input  class="form-control" list="Quality_list" id="Violation_Quality" name="Violation_Quality" placeholder="Chất lượng" >
+<datalist id="Quality_list">
+<option value="Driver-1-Thực hiện các hành vi quấy rối tình dục mang tính thể chất gồm hành động, cử chỉ, tiếp xúc, tác động vào cơ thể mang tính tình dục hoặc gợi ý tình dục đối với người bán (bao gồm nhân viên của người bán), khách hàng, nhân viên của Be Group mà không được những đối tượng này mong muốn hoặc chấp nhận">
+<option value="Driver-2-Thực hiện các hành vi quấy rối tình dục bao gồm: quấy rối tình dục bằng lời nói gồm lời nói trực tiếp, qua điện thoại hoặc qua phương tiện điện tử có nội dung tình dục hoặc có ngụ ý tình dục; quấy rối tình dục phi lời nói gồm ngôn ngữ cơ thể; trưng bày, miêu tả tài liệu trực quan về tình dục hoặc liên quan đến hoạt động tình dục trực tiếp hoặc qua phương tiện điện tử; và bất kỳ hành vi có tính chất tình dục nào khác đối với người bán (bao gồm nhân viên của người bán), khách hàng, nhân viên của Be Group mà không được những đối tượng này mong muốn hoặc chấp nhận">
+<option value="Driver-3-Tuyên truyền hoặc thuyết phục người khác truyền bá thông tin, tài liệu gian lận hoặc giả mạo, xúc phạm khách hàng, tài xế Be khác, người bán, Be Group (bao gồm cả: cán bộ, nhân viên Be Group) và/hoặc bên thứ ba khác trực tiếp hoặc thông qua các phương tiện truyền thông.">
+<option value="Driver-4-Sử dụng thông tin, tài liệu, dữ liệu giả để đăng ký tài khoản Be, bao gồm nhưng không giới hạn bởi: Giấy phép lái xe giả mạo, CMND/CCCD giả mạo, …">
+<option value="Driver-5-Tài khoản của Tài xế (Shipper) hoặc Khách hàng hoặc Người Bán có dấu hiệu bị tấn công, xâm nhập bởi bên thứ ba.">
+<option value="Driver-6-Vi phạm pháp luật về an toàn giao thông gây hậu quả ít nghiêm trọng trở lên.">
+<option value="Driver-7-Tài xế có hành vi xúc phạm danh dự, nhân phẩm, gây tổn hại đến Khách hàng/Người Bán (bao gồm cả nhân viên của người bán)/nhân viên Be Group.">
+<option value="Driver-8-Cung cấp hàng hoá, tiền hoặc lợi ích cho cán bộ, nhân viên của Be Group nhằm mục đích phá vỡ các quy tắc chuẩn mực ứng xử, ảnh hưởng xấu đến chất lượng dịch vụ hoặc vụ lợi cá nhân.">
+<option value="Driver-9-Bị phát hiện hoặc báo cáo là mang theo vũ khí thô sơ, công cụ hỗ trợ hoặc các loại công cụ, phương tiện khác có khả năng sát thương trong khi đang thực hiện đơn hàng/chuyến xe.">
+<option value="Driver-10-Yêu cầu hành khách xuống xe/bỏ hàng khi chưa tới điểm đến hoặc yêu cầu tài xế khác thực hiện chuyến đi/đơn hàng.">
+<option value="Driver-11-Sử dụng phương tiện khác (không trùng biển số đăng ký hoạt động ứng dụng Be) để tham gia cung cấp dịch vụ.">
+<option value="Driver-12-Hành vi phân biệt đối xử với khách hàng thông qua lời nói, từ chối đơn hàng/chuyến xe do phân biệt vùng miền, giới tính, ngoại hình,…">
+<option value="Driver-13-Cản trở các Tài xế khác thực hiện các chuyến xe/đơn hàng của họ.">
+<option value="Driver-14-Liên hệ với khách hàng/người bán (bao gồm nhân viên của người bán) sau khi đã thực hiện xong đơn hàng/chuyến xe cho các vấn đề khác ngoài vấn đề đặt đơn hàng/chuyến xe với mục đích làm phiền">
+<option value="Driver-15-Yêu cầu Khách hàng thanh toán thêm cước phí (tiền bo, tiền giữ xe, tiền xăng …) ngoài giá cước hiển thị trên ứng dụng Be (trừ phí cầu, đường, phà, bến bãi do nhà nước, bên thứ ba theo quy định).">
+<option value="Driver-16-Vận chuyển thêm người khác ngoài khách hàng và hành khách đi cùng khi đang thực cung cấp dịch vụ.">
+<option value="Driver-17-Lái xe quá tốc độ quy định, không tuân thủ quy tắc giao thông, lái xe trong khi không tỉnh táo, sử dụng điện thoại trong khi lái xe vi phạm các chỉ dẫn lái xe thông thường (lái xe không an toàn)">
+<option value="Driver-18-Tài xế không đón hành hách/không thực hiện đơn hàng mà vẫn bấm bắt đầu và/hoặc kết thúc chuyến đi.">
+<option value="Driver-19-Hút thuốc trong khi lái xe, bắt đầu một đơn đặt hàng mà không có xác nhận cho Khách hàng và các vấn đề khác gây ra sự bất tiện cho Khách hàng .">
+<option value="Driver-20-Đưa ra lý do không nhận chuyến/đơn hàng sai quy định và yêu cầu Khách hàng hủy chuyến/đơn hàng">
+<option value="Driver-21-Thái độ thiếu chuyên nghiệp, khiếm nhã với Khách hàng.">
+<option value="Driver-22-Không mặc đủ trang phục Be (trang bị đầy đủ bao gồm mũ bảo hiểm và áo phông hoặc áo khoác).">
+<option value="Driver-23-Nhấn nút “Bắt đầu chuyến” trước khi đón và gặp Khách hàng.">
+<option value="Driver-24-Bị Khách hàng than phiền về tình trạng xe hoặc trang phục/mũ bảo hiểm không sạch sẽ.">
+<option value="Driver-25-Trả hách/trả hàng ở địa điểm khác với địa điểm đã đặt trên ứng dụng Be, hoặc từ chối đoạn đường đúng trên ứng dụng Be (trừ trường hợp được hách hàng đồng ý trước)">
+<option value="Driver-26-Các hành vi gây mất vệ sinh an toàn thực phẩm (bao gồm nhưng không giới hạn đến làm hư hỏng, đổ; để dị vật hoặc côn trùng tiếp xúc với đồ ăn; không tuân thủ thời gian giao đồ ăn; cố ý mở bao bì, vật dụng chứa thực phẩm dẫn tới mất vệ sinh an toàn thực phẩm…).">
+<option value="Driver-27-Nhận được 02 phản hồi không tốt từ hách hàng liên quan đến 13 hành vi vi phạm tiêu chuẩn Chất lượng dịch vụ Vi phạm nặng: Nhận 03 phản hồi không tốt từ hách hàng">
+<option value="Driver-28-Các hành vi khác vi phạm tiêu chuẩn Chất lượng Dịch vụ của Tài xế do Be Group quy định trong từng thời kỳ.">
+<option value="Driver-29-Có số sao trung bình thấp (Be Group quy định từng thời kỳ).">
+<option value="Driver-30-Tỷ lệ hoạt động của các chuyến be Đi tỉnh">
+<option value="Driver-31-Tuân thủ tỷ lệ hoạt động của các chuyến be tại Sân bay Nội Bài">
+<option value="Driver-32-Liên tục nhận được phản hồi không tốt từ hách. Tuân thủ tỷ lệ hoạt động của các chuyến be tại Sân bay Tân Sơn Nhất">
+<option value="Driver-33-Tài xế nhận chuyến nhưng liên tục không di chuyển đến điểm đón.">
+<option value="Driver-34-Câu kết, giúp sức, thông đồng, thủ đoạn, hành vi khác cùng với Tài xế khác/Khách hàng khác/tổ chức, cá nhân khác nhằm thực hiện các hành vi lừa đảo, chiếm đoạt tài sản của Be Group/Tài xế/Người Bán; các hành vi vi phạm pháp luật khác gây ảnh hưởng xấu/có khả năng gây ảnh hương xấu nghiêm trọng đến hình ảnh, uy tín, thương hiệu của Be Group (theo đánh giá của Be).">
+<option value="Driver-35-Tỷ lệ hủy cuốc cao >=30%">
+<option value="Driver-36-Tỷ lệ hủy cuốc cao >=75%">
+<option value="Driver-37-Tỷ lệ nhận cuốc thấp <80%">
+<option value="Driver-38-Tỷ lệ hoàn thành cuốc thấp <50%">
+<option value="User-1-Thực hiện các hành vi quấy rối tình dục bao gồm: quấy rối tình dục bằng lời nói gồm lời nói trực tiếp, qua điện thoại hoặc qua phương tiện điện tử có nội dung tình dục hoặc có ngụ ý tình dục; quấy rối tình dục phi lời nói gồm ngôn ngữ cơ thể; trưng bày, miêu tả tài liệu trực quan về tình dục hoặc liên quan đến hoạt động tình dục trực tiếp hoặc qua phương tiện điện tử; và bất kỳ hành vi có tính chất tình dục nào khác đối với người bán (bao gồm nhân viên của người bán), tài xế, nhân viên của Be Group mà không được những đối tượng này mong muốn hoặc chấp nhận">
+<option value="User-2-Thực hiện hành vi phá hoại tài sản của Tài xế (phương tiện di chuyển, điện thoại,…)">
+<option value="User-3-Tuyên truyền hoặc thuyết phục người khác truyền bá tin tức gian lận hoặc giả mạo, phỉ báng Be Group trực tiếp hoặc thông qua các phương tiện truyền thông.">
+<option value="User-4-Cố tình báo cáo, phản hồi thông tin không đúng sự thật gây ảnh hưởng xấu tới Tài xế của Be Group.">
+<option value="User-5-Khách hàng có hành vi đe dọa tính mạng, sức khỏe, tài sản, xúc phạm danh dự, nhân phẩm Tài xế/nhân viên Be Group">
+<option value="User-6-Đưa hàng hoá hoặc tiền hoặc lợi ích khác cho nhân viên của Be Group nhằm mục đích phá vỡ các quy tắc của Be Group.">
+<option value="User-7-Không thanh toán tiền/thanh toán không đủ tiền theo lệnh đặt xe/đơn hàng cho Tài xế.">
+<option value="User-8-Liên hệ với Tài xế với mục đích lôi kéo qua các công ty đối thủ trước/trong/sau chuyến đi (vi phạm 2 lần đối với 2 tài xế khác nhau).">
+<option value="User-9-Khách hàng không liên lạc được/số điện thoại không có thật.">
+<option value="User-10-Khách hàng đã đặt chuyến/đặt đơn trên ứng dụng Be nhưng từ chối khách không đặt chuyến/đặt đơn.">
+<option value="User-11-Khách hàng đợi Tài xế/Shipper đến nơi rồi huỷ/không liên lạc được.">
+<option value="User-12-Khách hàng đặt nhiều chuyến cùng thời điểm sau đó để gọi phương tiện/Tài xế nào đến trước, nhanh chóng.">
+<option value="User-13-Khách hàng hủy nhiều bất thường">
+<option value="MC-1-Dùng vũ lực hoặc hoặc đe dọa dùng vũ lực (bất kể có hay không có sử dụng vũ khí bao gồm vũ khí thô sơ, công cụ hỗ trợ hoặc các loại công cụ, phương tiện khác có khả năng sát thương) mà không gây thương tích, gây tổn hại cho sức khỏe đối với khách hàng, nhân viên của Be Group; gây rối trật tự công cộng.">
+<option value="MC-2-Các hành vi làm phiền, gạ gẫm tài xế, khách hàng, nhân viên của Be Group (trước, trong và sau khi thực hiện đơn hàng)">
+<option value="MC-3-Quấy rối tình dục bằng lời nói gồm lời nói trực tiếp, qua điện thoại hoặc qua phương tiện điện tử có nội dung tình dục hoặc có ngụ ý tình dục; quấy rối tình dục phi lời nói gồm ngôn ngữ cơ thể; trưng bày, miêu tả tài liệu trực quan về tình dục hoặc liên quan đến hoạt động tình dục trực tiếp hoặc qua phương tiện điện tử; và bất kỳ hành vi có tính chất tình dục nào khác đối với tài xế, khách hàng, nhân viên của Be Group mà không được những đối tượng này mong muốn hoặc chấp nhận">
+<option value="MC-4-Các hành vi vi phạm pháp luật: Lợi dụng và/hoặc câu kết với tài xế, khách hàng để vận chuyển hàng cấm, chất cấm theo quy định của pháp luật Hành vi chiếm đoạt hoặc các hành vi khác xâm phạm tới quyền sở hữu của bên thứ ba Các hành vi vi phạm pháp luật khác tới mức truy cứu trách nhiệm hình sự">
+<option value="MC-5-Quấy rối tình dục bằng hành vi mang tính thể chất gồm hành động, cử chỉ, tiếp xúc, tác động vào cơ thể mang tính tình dục hoặc gợi ý tình dục đối với tài xế, khách hàng, nhân viên của Be Group">
+<option value="MC-6-Dùng vũ lực hoặc hoặc đe dọa dùng vũ lực (bất kể có hay không có sử dụng vũ khí bao gồm vũ khí thô sơ, công cụ hỗ trợ hoặc các loại công cụ, phương tiện khác có khả năng sát thương) gây thương tích, gây tổn hại cho sức khỏe hoặc dẫn tới tử vong đối với tài xế, khách hàng, nhân viên của Be Group">
+<option value="MC-7-Đồ ăn gây ngộ độc cho khách hàng theo kết luận theo của cơ quan chức năng và Be trên cơ sở kiểm tra và xác nhận với các bên liên quan.">
+<option value="MC-8-Không chủ động cập nhật về việc thay đổi địa điểm, điện thoại liên lạc, thời gian hoạt động, menu món ăn, …">
+<option value="MC-9-Không cập nhật tình trạng Hết món của món ăn trong menu, làm phát sinh các trường hợp huỷ đơn hàng.">
+<option value="MC-10-Có sự phân biệt giữa đơn hàng đặt qua beFood và đơn hàng mua tại Nhà hàng (về giá cả, số lượng và chất lượng món ăn, …).">
+<option value="MC-11-Không cập nhật giá cả của món ăn, làm phát sinh các trường hợp huỷ đơn hàng hoặc thu thêm tiền của Khách hàng.">
+<option value="MC-12-Giao thiếu món hoặc sai món.">
+<option value="MC-13-Không hoàn trả tiền thừa cho Tài xế/Shipper.">
+<option value="MC-14-Không tiếp nhận xử lý thỏa đáng mọi khiếu nại của thành viên khách hàng ( nếu chứng minh được lỗi đó thuộc về nhà hàng)">
+<option value="MC-15-Không bảo quản và thông báo cho be về trạng thái thiết bị và tài sản được be cung cấp ( bao gồm nhưng không giới hạn: máy POS, vật phẩm trưng bày,v,v)">
+<option value="MC-16-Gây trở ngại cho Tài xế (Shipper) trong việc tiếp nhận đơn hàng tại Nhà hàng; từ chối Tài xế (Shipper) nhưng không có lý do hợp lý.">
+<option value="MC-17-Người Bán, CBNV, người làm công, đại lý, cộng tác viên của Nhà Hàng thực hiện một trong các các hành vi: hành hung Tài xế (Shipper)/Khách hàng khi giao dịch; trộm cắp tài sản, cướp giật tài sản Tài xế (Shipper) khi giao dịch; đầu độc, gây ngộ độc Thực Phẩm bán cho Khách hàng; câu kết với Tài xế (shipper)/Khách hàng gian lận, lừa đảo, chiếm đoạt tài sản của Be Group; các hành vi vi phạm pháp luật khác gây ảnh hưởng xấu/có khả năng gây ảnh hương xấu nghiêm trọng đến hình ảnh, uy tín, thương hiệu của Be Group (theo đánh giá của Be).">
+<option value="TSN-Tài xế chèo kéo khách hàng khi không có chuyến đi (Buộc khách hàng đi xe mà đang không có sẵn chuyến trên màn hình tài xê)">
+<option value="TSN-Tài xế KHÔNG dán đầy đủ tem beSticker khi đón khác trong sân bay">
+<option value="TSN-Tài xế KHÔNG đỗ xe đợi khách tại đúng địa điểm quy định (Bãi đỗ xe đệm của Be)">
+<option value="TSN-Tài xế KHÔNG đón khách đúng điểm quy định (Điểm đón khách của Be ở Sân bay)">
+<option value="TSN-Tài xế KHÔNG theo sự hướng dẫn của nhân viên điều phối Be tại sân bay">
+</datalist>
+</div>
+
+
+<div class="form-group col-md-6">
+<label for="exampleFormControlSelect1">Violation_Fraud:</label>
+<input  class="form-control" list="Fraud_list" id="Violation_Fraud" name="Violation_Fraud" placeholder="Gian lận" >
+<datalist id="Fraud_list">
+    <option value="Driver-1-Thực hiện hành vi gian lận nhằm trục lợi trên chính sách của Be Group, bao gồm nhưng không giới hạn hành vi thực hiện chuyến đi/hàng hóa/đơn hàng giả mạo.">
+    <option value="Driver-1.1-Tự tạo một hoặc nhiều tài khoản khách trên một hoặc nhiều thiết bị nhằm đặt các chuyến đi/hàng hóa/đơn hàng giả mạo cho chính tài khoản tài xế thực hiện">
+    <option value="Driver-1.2-Sử dụng thiết bị có chung tài khoản tài xế và khách hàng có phát sinh chuyến đi/hàng hóa/đơn hàng với nhau">
+    <option value="Driver-2-Phối hợp với các Tài xế khác hoặc Khách hàng, Người Bán, người thân, bạn bè thực hiện hành vi gian lận nhằm trục lợi trên chính sách của Be Group, bao gồm nhưng không giới hạn hành vi thực hiện chuyến đi/hàng hóa/đơn hàng giả mạo.">
+     <option value="Driver-2.1-Tự tạo một hoặc nhiều tài khoản khách trên một hoặc nhiều thiết bị nhằm đặt các chuyến đi/hàng hóa/đơn hàng giả mạo cho tài khoản của các tài xế khác thực hiện">
+    <option value="Driver-2.2-Phối hợp nhờ người quen, người thân, bạn bè đặt các chuyến đi/hàng hóa/đơn hàng">
+    <option value="Driver-2.3-Tổ chức, tạo lập nhóm tài xế số lượng nhiều từ hai người trở lên, thực hiện đặt các chuyến đi/hàng hóa/đơn hàng giả mạo cho nhau.">
+    <option value="Driver-2.4-Tham gia, lôi kéo, gia nhập các hội nhóm đường dây tổ chức gian lận bằng nhiều hình thức và công nghệ cao.">
+    <option value="Driver-3-Sử dụng các thiết bị hoặc ứng dụng khác đáng ngờ để thực hiện chuyến đi/hàng hóa/đơn hàng nhằm gian lận.">
+    <option value="Driver-3.1-Thực hiện cài đặt sử dụng các ứng dụng phần mềm thứ ba nhằm can thiệp vào quá trình thực hiện bình thường chuyến đi/hàng hóa/đơn hàng trên tài khoản tài xế">
+    <option value="Driver-3.2-Sử dụng các phần mềm giả lập bao gồm và không giới hạn : giả lập vị trí ảo sai định vị GPS, giả lập đổi thông số của thiết bị (imei, id), giả lập hệ điều hành Android, IOS.">
+    <option value="Driver-4-Hoàn thành chuyến đi/hàng hóa/đơn hàng mà không đón Hành khách/lấy hàng hoặc chưa kết thúc chuyến đi trên thực tế.">
+    <option value="Driver-5-Hủy chuyến đi/hàng hóa/đơn hàng nhưng vẫn chở khách và thực hiện hoàn thành.">
+    <option value="Driver-6-Tách chuyến đi: Phối hợp với khách hàng tách một chuyến đi thành nhiều chuyến đi ngắn để trục lợi chương trình thưởng hoặc khuyến mãi">
+    <option value="Driver-7-Tự ý chỉnh sửa nhập mức cước phí tăng hơn giá cước ban đầu nhưng không có thỏa thuận với khách hàng đối với hình thức thanh toán ví điện tử">
+    <option value="Driver-11-Phối hợp hoặc tự tạo một hoặc nhiều tài khoản khách trên một hoặc nhiều thiết bị nhằm đặt các chuyến đi/hàng hóa/đơn hàng giả mạo sử dụng hình thức thanh toán không tiền mặt hoặc thẻ visa/master card giả, ăn cắp">
+    <option value="User-1-Thực hiện chuyến xe, đơn hàng/tạo tài khoản giả mạo hoặc các giao dịch bất thường trên ví thông qua hệ thống của Be Group nhằm trục lợi.">
+    <option value="User-1.1-Tạo nhiều tài khoản trên một hoặc nhiều thiết bị nhằm đặt các chuyến đi/hàng hóa/đơn hàng giả mạo cho tài xế thực hiện">
+    <option value="User-1.2-Tạo tài khoản khách trên một hoặc nhiều thiết bị nhằm đặt các chuyến đi/hàng hóa/đơn hàng giả mạo sử dụng hình thức thanh toán thẻ ghi nợ, thẻ tín dụng, ví điện tử bất thường.">
+    <option value="User-2-Câu kết với Tài xế thực hiện chuyến đi/hàng hóa/đơn hàng giả mạo hoặc các giao dịch bất thường nhằm trục lợi cho mình và/hoặc người khác.">
+    <option value="User-2.1-Phối hợp chỉ định lựa chọn tài xế quen để thực chuyến đi/hàng hóa/đơn hàng">
+    <option value="User-3-Câu kết, giúp sức, thông đồng, thủ đoạn, hành vi khác cùng với Tài xế, khách hàng, tổ chức, cá nhân khác nhằm thực hiện các hành vi gian lận, lừa đảo, chiếm đoạt tài sản của Be Group, Tài xế, Người Bán; các hành vi vi phạm pháp luật khác gây ảnh hưởng xấu/có khả năng gây ảnh hương xấu nghiêm trọng đến hình ảnh, uy tín, thương hiệu của Be Group (theo đánh giá của Be).">
+<option value="User-3.1-Tổ chức, tạo lập nhóm khách hàng số lượng nhiều từ hai người trở lên, thực hiện đặt các chuyến đi/hàng hóa/đơn hàng giả mạo cho một nhóm tài xế nhất định">
+<option value="User-4-Khách hàng có tài khoản không hợp lệ.">
+<option value="User-4.1-Sử dụng một thiết bị đã truy cập nhiều tài khoản của khách hàng hoặc tài xế để đặt các chuyến đi/hàng hóa/đơn hàng giả mạo">
+<option value="User-4.2-Sử dụng thiết bị có chung tài khoản tài xế và khách hàng có phát sinh chuyến đi/hàng hóa/đơn hàng với nhau">
+<option value="User-4.3-Tài khoản sử dụng các thẻ thanh toán giả hoặc ăn cắp đã bị từ chối thanh toán từ hai lần trở lên">
+<option value="MC-1-Câu kết với Tài xế thực hiện chuyến đi/hàng hóa/đơn hàng giả mạo hoặc các giao dịch bất thường nhằm trục lợi cho mình và/hoặc người khác.">
+<option value="MC-2-Câu kết, giúp sức, thông đồng, thủ đoạn, hành vi khác cùng với Tài xế, khách hàng, tổ chức, cá nhân khác nhằm thực hiện các hành vi gian lận, lừa đảo, chiếm đoạt tài sản của Be Group, Tài xế, Người Bán; các hành vi vi phạm pháp luật khác gây ảnh hưởng xấu/có khả năng gây ảnh hương xấu nghiêm trọng đến hình ảnh, uy tín, thương hiệu của Be Group (theo đánh giá của Be).">
+<option value="MC-2.1-Người bán thỏa thuận với một bên thứ ba để mua các sản phẩm trên gian hàng của mình.">
+<option value="MC-2.2-Người bán mở nhiều chi nhánh / đại lý và trao đổi mua bán qua lại giữa các chi nhánh / đại lý">
+<option value="MC-2.3-Người bán thỏa thuận với người mua giao dịch ngoài ứng dụng">
+<option value="MC-2.4-Tạo nhiều tài khoản khách hàng trên một hoặc nhiều thiết bị nhằm đặt các đơn hàng sản phẩm cho chính mình">
+<option value="MC-3-Người bán có tài khoản không hợp lệ.Lưu ý: nếu khách hàng bị 3 lần cảnh cáo sẽ bằng 1 lần chấm dứt vĩnh viễn.">
+<option value="MC-3.1-Sử dụng một thiết bị đã truy cập nhiều tài khoản của khách hàng hoặc tài xế để đặt các chuyến đi/hàng hóa/đơn hàng giả mạo">
+<option value="MC-3.2-Sử dụng thiết bị có chung tài khoản tài xế và khách hàng có phát sinh chuyến đi/hàng hóa/đơn hàng với nhau">
+<option value="MC-4-Sử dụng phần mềm, ứng dụng bên thứ ba để gian lận">
+<option value="Rematch Device Name">
+<option value="Rematch Customer">
+<option value="Instant Completion Daily">
+<option value="Trips with Fake Accounts">
+<option value="Rematch Customer Monthly">
+<option value="Abnormal Distance&Duration Daily">
+<option value="Abnormal Distance&Duration Cash Daily">
+<option value="Instant Completion Cash Daily">
+<option value="Abnormal Short Food Trips Daily">
+<option value="Toll Abuse">
+<option value="Instant Completion Cash Nodiscount Daily">
+<option value="Instant Completion Cashless Daily">
+<option value="Instant Completion Cash Daily, Instant Completion Cashless Daily">
+<option value="Abnormal Trips with New Accounts v2_PROMO_">
+<option value="Instant Completion Cashless Daily _FARE_">
+<option value="Fake trips (short, food)">
+<option value="High Trip Hourly">
+<option value="Canceled went to drop">
+<option value="Toll Abuse _TOLL_">
+<option value="Toll Abuse Last7Days _TOLL_">
+<option value="Instant Completion Daily - general">
+<option value="Offline trip">
+<option value="Rematch Customer Last7Days nodiscount">
+<option value="ADHOC begin-end">
+<option value="ADHOC Offline Trip">
+<option value="ADHOC Begin End Trip">
+<option value="Rematch Customer Monthly >=5 trips with merchant">
+<option value="Abnormal Distance&Duration Cash Daily _PROMO_">
+<option value="Fake customers (created time)"> 
+</datalist>
+</div>
+
+
+
+
+ <div class="form-group col-md-6">
+<label for="exampleFormControlSelect1">penalty:</label>
+<input  class="form-control" list="penalty_list" id="penalty" name="penalty" placeholder="Hình thức xử lý" required>
+<datalist id="penalty_list">
+<option value="Warning">
+<option value="Suspend 1 day">
+<option value="Suspend 3 days">
+<option value="Suspend 7 days">
+<option value="Suspend 15 days">
+<option value="Ban">
+<option value="Warning CR">
+<option value="Waiting Suspend">
+<option value="Warning AR">
+<option value="Warning CPR">
+</datalist>
+</div>
+
+
+<div class="form-group col-md-6">
+<label for="Suspend_Ban_day">Suspend_Ban_day</label>
+<input type="date" class="form-control" id="Suspend_Ban_day" name="Suspend_Ban_day">
+</div>
+
+
+<div class="form-group col-md-6">
+<label for="Active_Before">Active_Before</label>
+<input type="date" class="form-control" id="Active_Before" name="Active_Before" disabled>
+</div>
+
+
+<div class="form-group col-md-6">
+<label for="Unsuspend_day">Unsuspend_day</label>
+<input type="date" class="form-control" id="Unsuspend_day" name="Unsuspend_day" disabled>
+</div><br><br><br>
+
+ 
+
+
+		<div class="form-group col-md-6">
+			<p>innocent</p>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="innocent" id="Yes" value="Yes">
+				<label class="form-check-label" for="Yes">Yes</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="innocent" id="No" value="No">
+				<label class="form-check-label" for="No">No</label>
+			</div>
+		</div>
+
+
+
+
+
+<div class="form-group col-md-6">
+<label for="date_innocent">date_innocent</label>
+<input type="date" class="form-control" id="date_innocent" name="date_innocent" disabled>
+</div>
+
+	<div class="form-group col-md-6">
+		<label for="Input_violation" >Input_violation</label>
+		<input type="text" class="form-control" id="Input_violation" name="Input_violation" placeholder="Thông tin vi phạm">
+	</div>
+
+	<div class="form-group col-md-6">
+		<label for="Sub_email_ticket" >Sub_email_ticket</label>
+		<input type="text" class="form-control" id="Sub_email_ticket" name="Sub_email_ticket" placeholder="Nguồn tiếp nhận" >
+	</div>
+
+
+
+		<div class="form-group col-md-6">
+			<p>Explanation</p>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="Explanation" id="Yes" value="Yes">
+				<label class="form-check-label" for="Yes">Yes</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="Explanation" id="No" value="No">
+				<label class="form-check-label" for="No">No</label>
+			</div>
+		</div>
+
+
+<div class="form-group col-md-6">
+		<label for="source_innocent" >source_innocent</label>
+		<input type="text" class="form-control" id="source_innocent" name="source_innocent" value = "Nothing"  >
+</div>
+
+
+</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+    <input class="btn btn-secondary" type="reset" value="Reset">
+</form>
+
+
+
+
+
+									
+
