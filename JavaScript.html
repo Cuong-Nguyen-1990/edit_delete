@@ -1,0 +1,142 @@
+<script>
+  // Prevent forms from submitting.
+  function preventFormSubmit() {
+    var forms = document.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener('submit', function(event) {
+      event.preventDefault();
+      });
+    }
+  }
+  window.addEventListener("load", functionInit, true); 
+  
+  //INITIALIZE FUNCTIONS ONLOAD
+  function functionInit(){  
+    preventFormSubmit();
+    //getLastTenRows();
+  };      
+  
+  //HANDLE FORM SUBMISSION
+  function handleFormSubmit(formObject) {
+    google.script.run.withSuccessHandler(createTable).processForm(formObject);
+    document.getElementById("myForm").reset();
+  }
+  
+  //GET LAST 10 ROWS
+  // function getLastTenRows (){
+  //  google.script.run.withSuccessHandler(createTable).getLastTenRows();
+  // }
+  
+  
+  //GET ALL DATA
+  function getAllData(){
+    document.getElementById('dataTable').innerHTML = "";
+    google.script.run.withSuccessHandler(createTable).getAllData();
+  }
+  
+  
+  //CREATE THE DATA TABLE
+  function createTable(dataArray) {
+    if(dataArray){
+      var result = "<table class='table table-sm' style='font-size:0.8em'>"+
+                   "<thead style='white-space: nowrap'>"+
+                     "<tr>"+                               //Change table headings to match witht he Google Sheet
+                      "<th scope='col'>Delete</th>"+
+                      "<th scope='col'>Edit</th>"+
+                      "<th scope='col'>ID</th>"+
+                      "<th scope='col'>checking_date</th>"+
+                      "<th scope='col'>owner_hit</th>"+
+                      "<th scope='col'>driver_id</th>"+
+                      "<th scope='col'>vehicle_type</th>"+
+                      "<th scope='col'>driver_name</th>"+
+                      "<th scope='col'>vehicle_no</th>"+
+                      "<th scope='col'>Violation_Quality</th>"+
+                      "<th scope='col'>Violation_Fraud</th>"+
+                      "<th scope='col'>penalty</th>"+
+                      "<th scope='col'>Suspend_Ban_day</th>"+
+                      "<th scope='col'>Active_Before</th>"+
+                      "<th scope='col'>Unsuspend_day</th>"+
+                      "<th scope='col'>innocent</th>"+
+                      "<th scope='col'>date_innocent</th>"+
+                      "<th scope='col'>Input_violation</th>"+
+                      "<th scope='col'>Sub_email_ticket</th>"+
+                      "<th scope='col'>Explanation</th>"+
+                      "<th scope='col'>source_innocent</th>"+
+                    "</tr>"+
+                  "</thead>";
+      for(var i=0; i<dataArray.length; i++) {
+          result += "<tr>";
+          result += "<td><button type='button' class='btn btn-danger btn-xs deleteBtn' onclick='deleteData(this);'>Delete</button></td>";
+          result += "<td><button type='button' class='btn btn-warning btn-xs editBtn' onclick='editData(this);'>Edit</button></td>";
+          for(var j=0; j<dataArray[i].length; j++){
+              result += "<td>"+dataArray[i][j]+"</td>";
+          }
+          result += "</tr>";
+      }
+      result += "</table>";
+      var div = document.getElementById('dataTable');
+      div.innerHTML = result;
+      document.getElementById("message").innerHTML = "";
+    }else{
+      var div = document.getElementById('dataTable');
+      div.innerHTML = "Không tìm thấy dữ liệu!";
+    }
+  }
+
+  //DELETE DATA
+  function deleteData(el) {
+    var result = confirm("Bạn muốn xóa dữ liệu?");
+    if (result) {
+      var recordId = el.parentNode.parentNode.cells[2].innerHTML;
+      google.script.run.withSuccessHandler(createTable).deleteData(recordId);
+    }
+  }
+  
+  
+  //EDIT DATA
+  function editData(el){
+    var recordId = el.parentNode.parentNode.cells[2].innerHTML; //https://stackoverflow.com/a/32377357/2391195
+    google.script.run.withSuccessHandler(populateForm).getRecordById(recordId);
+  }
+
+  //POPULATE FORM
+  function populateForm(records){
+    document.getElementById('RecId').value = records[0][0];
+    document.getElementById('checking_date').value = records[0][1];
+    document.getElementById('owner_hit').value = records[0][2];
+    document.getElementById('driver_id').value = records[0][3];
+    document.getElementById('vehicle_type').value = records[0][4];
+    document.getElementById('driver_name').value = records[0][5];
+    document.getElementById('vehicle_no').value = records[0][6];
+    document.getElementById('Violation_Quality').value = records[0][7];
+    document.getElementById('Violation_Fraud').value = records[0][8];
+    document.getElementById('penalty').value = records[0][9];
+    document.getElementById('Suspend_Ban_day').value = records[0][10];
+    document.getElementById('Active_Before').value = records[0][11];
+    document.getElementById('Unsuspend_day').value = records[0][12];
+    document.getElementById('innocent').value = records[0][13];
+    document.getElementById('date_innocent').value = records[0][14];
+    document.getElementById('Input_violation').value = records[0][15];
+    document.getElementById('Sub_email_ticket').value = records[0][16];
+    document.getElementById('Explanation').value = records[0][17];
+    document.getElementById('source_innocent').value = records[0][18];
+    document.getElementById("message").innerHTML = "<div class='alert alert-warning' role='alert'>Update Record [ID: "+records[0][0]+"]</div>";
+  }
+  
+  // //RETRIVE DATA FROM GOOGLE SHEET FOR COUNTRY DROPDOWN
+  // function createCountryDropdown() {
+  //     //SUBMIT YOUR DATA RANGE FOR DROPDOWN AS THE PARAMETER
+  //     google.script.run.withSuccessHandler(countryDropDown).getDropdownList("Helpers!A1:A151");
+  // }
+  
+  // //POPULATE COUNTRY DROPDOWNS
+  // function countryDropDown(values) { //Ref: https://stackoverflow.com/a/53771955/2391195
+  //   var list = document.getElementById('Violation_Quality');   
+  //   for (var i = 0; i < values.length; i++) {
+  //     var option = document.createElement("option");
+  //     option.value = values[i];
+  //     option.text = values[i];
+  //     list.appendChild(option);
+  //   }
+  // }
+</script>
